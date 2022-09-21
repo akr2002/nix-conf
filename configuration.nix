@@ -8,6 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # Hosts file
+      ./hosts.nix
     ];
 
   # Bootloader.
@@ -16,7 +19,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.extraModprobeConfig = "options kvm_intel nested=1";
 
-  networking.hostName = "deck"; # Define your hostname.
+  networking.hostName = "bridge"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
