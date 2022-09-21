@@ -32,6 +32,7 @@
 	pkgs.clang
 	pkgs.lldb
 	pkgs.kitty
+	pkgs.xsel
   ];
 
 	programs.bash = {
