@@ -5,6 +5,7 @@
   # paths it should manage.
   home.username = "user";
   home.homeDirectory = "/home/user";
+  programs.home-manager.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -43,9 +44,9 @@
   ];
 
   programs.bash = {
-    enable = true;
+    enable = false;
     bashrcExtra = ''
-        . ~/bashrc
+        . ~/.bashrc
     '';
   };
 
