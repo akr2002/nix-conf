@@ -46,7 +46,7 @@
     enable = true;
     bashrcExtra = ''
         . ~/bashrc
-    ''
+    '';
   };
 
   programs.zsh = {
