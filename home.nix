@@ -15,6 +15,9 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
+  # Allow non-free packages
+  nixpkgs.config.allowUnfree = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -34,8 +37,28 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.xsel
+    pkgs.xsel	pkgs.wget	pkgs.neofetch	pkgs.htop	pkgs.oh-my-zsh
+    pkgs.git	pkgs.chromium 	pkgs.kitty
   ];
+
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+        . ~/bashrc
+    ''
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "ys";
+      plugins = ["git" "colored-man-pages" "extract" "sudo"];
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
