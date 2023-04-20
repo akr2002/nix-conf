@@ -40,7 +40,8 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.xsel	pkgs.wget	pkgs.neofetch	pkgs.htop	pkgs.oh-my-zsh
-    pkgs.git	pkgs.chromium 	pkgs.kitty
+    pkgs.git	pkgs.chromium 	pkgs.kitty	pkgs.plasma5Packages.qtstyleplugin-kvantum	pkgs.kdeconnect
+    pkgs.bat
   ];
 
   programs.bash = {
