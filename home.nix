@@ -41,7 +41,8 @@
     # '')
     pkgs.xsel	pkgs.wget	pkgs.neofetch	pkgs.htop	pkgs.oh-my-zsh
     pkgs.git	pkgs.chromium 	pkgs.kitty	pkgs.plasma5Packages.qtstyleplugin-kvantum	pkgs.kdeconnect
-    pkgs.bat    pkgs.gnome.gnome-tweaks
+    pkgs.bat    pkgs.gnome.gnome-tweaks		pkgs.microsoft-edge	pkgs.vivaldi	pkgs.vivaldi-ffmpeg-codecs
+    pkgs.x264
   ];
 
   programs.bash = {
