@@ -19,10 +19,11 @@
 
   # Allow non-free packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.joypixels.acceptLicense = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -39,10 +40,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.xsel	pkgs.wget	pkgs.neofetch	pkgs.htop	pkgs.oh-my-zsh
-    pkgs.git	pkgs.chromium 	pkgs.kitty	pkgs.plasma5Packages.qtstyleplugin-kvantum	pkgs.kdeconnect
-    pkgs.bat    pkgs.gnome.gnome-tweaks		pkgs.microsoft-edge	pkgs.vivaldi	pkgs.vivaldi-ffmpeg-codecs
-    pkgs.x264
+    xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
+    bat gnome.gnome-tweaks microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts gnome.gnome-terminal 
+    joypixels rustc cargo
   ];
 
   programs.bash = {
@@ -62,6 +62,11 @@
       theme = "ys";
       plugins = ["git" "colored-man-pages" "extract" "sudo"];
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -89,7 +94,4 @@
   #  /etc/profiles/per-user/user/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
 }
