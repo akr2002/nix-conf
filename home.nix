@@ -42,7 +42,7 @@
     # '')
     xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat gnome.gnome-tweaks microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts gnome.gnome-terminal 
-    joypixels rustc cargo
+    joypixels rustc cargo unzip
   ];
 
   programs.bash = {
