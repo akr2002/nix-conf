@@ -18,7 +18,16 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".device = "/dev/disk/by-uuid/c0ef1093-a74e-4491-8c73-0009d3377c19";
+  boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".keyFile = "/crypto_keyfile.bin";
+
+  networking.hostName = "bridge"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -50,12 +59,12 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = false;
-  services.xserver.desktopManager.plasma5.enable = false;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable GNOME desktop environment
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   # Enable dconf
   programs.dconf.enable = true;
@@ -96,7 +105,7 @@
     isNormalUser = true;
     description = "user";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm"];
     packages = with pkgs; [
       firefox
       kate
@@ -113,7 +122,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    gnome.adwaita-icon-theme
+    #gnome.adwaita-icon-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
