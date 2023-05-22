@@ -42,7 +42,7 @@
     # '')
     xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts joypixels rustc cargo unzip ocs-url
-    nextcloud-client duf
+    nextcloud-client duf neovim
   ];
 
   programs.bash = {
@@ -63,6 +63,8 @@
       plugins = ["git" "colored-man-pages" "extract" "sudo"];
     };
   };
+
+  environment.variables.EDITOR = "nvim"
 
 #  programs.neovim = {
 #    enable = true;
