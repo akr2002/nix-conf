@@ -42,7 +42,7 @@
     # '')
     xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts joypixels rustc cargo unzip ocs-url
-    nextcloud-client
+    nextcloud-client duf
   ];
 
   programs.bash = {
