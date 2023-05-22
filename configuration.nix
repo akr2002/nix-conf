@@ -8,18 +8,17 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-
-      # Hosts file
-      ./hosts.nix
     ];
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.extraModprobeConfig = "options kvm_intel nested=1";
 
-  networking.hostName = "bridge"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -33,14 +32,33 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN.utf8";
+  i18n.defaultLocale = "en_IN";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_IN";
+    LC_IDENTIFICATION = "en_IN";
+    LC_MEASUREMENT = "en_IN";
+    LC_MONETARY = "en_IN";
+    LC_NAME = "en_IN";
+    LC_NUMERIC = "en_IN";
+    LC_PAPER = "en_IN";
+    LC_TELEPHONE = "en_IN";
+    LC_TIME = "en_IN";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.sddm.enable = false;
+  services.xserver.desktopManager.plasma5.enable = false;
+
+  # Enable GNOME desktop environment
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable dconf
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -71,22 +89,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
     description = "user";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm"];
-    
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
       kate
-      vim
-      libvirt
-      spice-gtk
-      qemu
-      qemu_kvm
-      virt-viewer
     #  thunderbird
     ];
   };
@@ -97,9 +110,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  virt-manager
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    gnome.adwaita-icon-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -113,7 +127,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -121,22 +135,17 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Nix extra options
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 
-	environment.sessionVariables = rec {
-		PATH = [
-			"\{$HOME}/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels\${NIX_PATH:+:\$NIX_PATH}"
-];
-};
-
-  # Virtualisation
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
- 
 }
