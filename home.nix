@@ -42,8 +42,12 @@
     # '')
     xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts joypixels rustc cargo unzip ocs-url
-    nextcloud-client duf neovim
+    nextcloud-client duf neovim foliate mpv obsidian
   ];
+
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-21.4.0"
+    ];
 
   programs.bash = {
     enable = false;
