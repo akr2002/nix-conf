@@ -11,7 +11,14 @@
     ];
 
   # Enable Bluetooth
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+      enable = true;
+      settings = {
+          General = {
+              Experimental = "true";
+            };
+        };
+    };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
