@@ -116,9 +116,18 @@
     packages = with pkgs; [
       firefox
       kate
-    #  thunderbird
+      vim
+      libvirt
+      spice-gtk
+      qemu
+      qemu_kvm
+      virt-viewer
+      virt-manager
+      OVMF
     ];
   };
+
+  virtualisation.libvirtd.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
