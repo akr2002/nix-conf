@@ -40,9 +40,9 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
+    xsel wget neofetch htop oh-my-zsh git chromium plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts joypixels rustc cargo unzip ocs-url
-    nextcloud-client duf neovim foliate mpv obsidian dino aria2 bitwarden
+    nextcloud-client duf neovim foliate mpv obsidian dino aria2 bitwarden kitty-themes
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -66,6 +66,20 @@
       theme = "ys";
       plugins = ["git" "colored-man-pages" "extract" "sudo"];
     };
+  };
+
+  programs.kitty = {
+    enable = true;
+    extraConfig = "include ~/.config/kitty/current-theme.conf 
+    font_family JetBrainsMono Nerd Font
+    bold_font auto
+    italic_font auto
+    bold_italic_font auto
+    wayland_titlebar_color system
+    hide_window_decorations no
+    linux_display_server x11
+    confirm_os_window_close 0
+    ";
   };
 
 
