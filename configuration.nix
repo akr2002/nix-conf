@@ -73,6 +73,14 @@
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
 
+# Enable dde 
+  # services.xserver.desktopManager.deepin.enable = true;
+  # services.deepin = {
+  #     dde-daemon.enable = true;
+  #     dde-api.enable = true;
+  #     app-services.enable = true;
+  #   };
+
   # Enable dconf
   programs.dconf.enable = true;
 
