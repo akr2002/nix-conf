@@ -133,6 +133,10 @@
       virt-manager
       OVMF
     ];
+  }; 
+  environment = {
+      homeBinInPath = true; # Include ~/bin/ in $PATH
+      localBinInPath = true; # Include ~/.local/bin in $PATH
   };
 
   virtualisation.libvirtd.enable = true;
