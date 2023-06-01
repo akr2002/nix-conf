@@ -43,7 +43,7 @@
     xsel wget neofetch htop oh-my-zsh git chromium plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts joypixels rustc cargo unzip ocs-url
     nextcloud-client duf neovim foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
-    tdesktop libreoffice-fresh jetbrains-mono yakuake
+    tdesktop libreoffice-fresh jetbrains-mono yakuake krita
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
