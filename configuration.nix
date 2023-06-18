@@ -122,7 +122,6 @@
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm"];
     packages = with pkgs; [
-      firefox
       kate
       vim
       libvirt
