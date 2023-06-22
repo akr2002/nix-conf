@@ -58,7 +58,7 @@
     nextcloud-client duf neovim foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
-    cachix
+    cachix direnv
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -69,6 +69,7 @@
     enable = false;
     bashrcExtra = ''
         . ~/.bashrc
+        eval "$(direnv hook bash)"
     '';
   };
 
@@ -77,11 +78,15 @@
     enableCompletion = true;
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
+    # enableBashCompletion = true;
     oh-my-zsh = {
       enable = true;
       theme = "ys";
       plugins = ["git" "colored-man-pages" "extract" "sudo"];
     };
+    initExtra = ''
+        eval "$(direnv hook zsh)"
+        '';
   };
 
   programs.kitty = {
