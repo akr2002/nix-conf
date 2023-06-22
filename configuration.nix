@@ -115,6 +115,8 @@
 
   programs.zsh.enable = true;
 
+  nix.settings.trusted-users = [ "root" "user" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
