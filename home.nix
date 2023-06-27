@@ -69,6 +69,7 @@
     enable = false;
     bashrcExtra = ''
         . ~/.bashrc
+        eval "$(starship init bash)"
         eval "$(direnv hook bash)"
     '';
   };
@@ -86,6 +87,7 @@
     };
     initExtra = ''
         eval "$(direnv hook zsh)"
+        eval "$(starship init zsh)"
         '';
   };
 
