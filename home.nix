@@ -58,7 +58,7 @@
     nextcloud-client duf neovim foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
-    cachix direnv git-lfs starship nix-direnv
+    cachix direnv git-lfs nix-direnv
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -69,7 +69,6 @@
     enable = false;
     bashrcExtra = ''
         . ~/.bashrc
-        eval "$(starship init bash)"
         eval "$(direnv hook bash)"
     '';
   };
@@ -87,7 +86,6 @@
     };
     initExtra = ''
         eval "$(direnv hook zsh)"
-        eval "$(starship init zsh)"
         '';
   };
 
