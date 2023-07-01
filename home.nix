@@ -21,6 +21,11 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.joypixels.acceptLicense = true;
 
+  # Manage session variables
+  home.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE=1;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -56,7 +61,7 @@
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
       theme = "ys";
