@@ -56,10 +56,10 @@
     # '')
     xsel wget neofetch htop oh-my-zsh git chromium plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 joypixels rustc cargo unzip ocs-url
-    nextcloud-client duf neovim foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
+    nextcloud-client duf foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
-    cachix direnv git-lfs nix-direnv zathura 
+    cachix direnv git-lfs nix-direnv zathura starship 
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -71,6 +71,7 @@
     bashrcExtra = ''
         . ~/.bashrc
         eval "$(direnv hook bash)"
+        eval "$(starship init bash)"
     '';
   };
 
@@ -87,6 +88,7 @@
     };
     initExtra = ''
         eval "$(direnv hook zsh)"
+        eval "$(starship init zsh)"
         '';
   };
 
@@ -105,10 +107,20 @@
   };
 
 
-#  programs.neovim = {
-#    enable = true;
-#    defaultEditor = true;
-#  };
+ programs.neovim = {
+   enable = true;
+   defaultEditor = true;
+
+   plugins = (with pkgs.vimPlugins; [
+   rust-vim
+   rust-tools-nvim
+   coc-rust-analyzer
+   nvim-treesitter-parsers.rust
+   coc-rls
+   coc-clangd
+   clangd_extensions-nvim
+   ]);
+ };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
