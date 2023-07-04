@@ -59,7 +59,7 @@
     nextcloud-client duf foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
-    cachix direnv git-lfs nix-direnv zathura starship 
+    cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -147,6 +147,26 @@
    clangd_extensions-nvim
    ]);
  };
+
+ programs.vscode = {
+     enable = true;
+     extensions = (with pkgs.vscode-extensions;[
+      arrterian.nix-env-selector
+      mkhl.direnv
+      jnoortheen.nix-ide
+
+      xaver.clang-format
+      llvm-vs-code-extensions.vscode-clangd
+      vadimcn.vscode-lldb
+      # ms-vscode.cpptools
+      colejcummins.llvm-syntax-highlighting
+
+      rust-lang.rust-analyzer
+
+      waderyan.gitblame
+     ]);
+   };
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
