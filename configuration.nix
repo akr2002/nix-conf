@@ -163,6 +163,8 @@
     gnomeExtensions.media-controls
     gnomeExtensions.ideapad-controls
     gnomeExtensions.maximize-to-empty-workspace
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.hide-activities-button
  ];
 
   programs.neovim = {
