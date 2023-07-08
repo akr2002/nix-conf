@@ -60,7 +60,6 @@
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
     cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
-    guake gnome.gnome-power-manager
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
