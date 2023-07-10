@@ -25,6 +25,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Kernel modules
+  boot.kernelModules = [ "kvm-intel" "snd-hda-intel" "i8042" ];
+  boot.extraModprobeConfig = ''
+    options snd-hda-intel model=alc255-acer,dell-headset-multi
+    options i8042 nopnp=1
+  '';
+
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
