@@ -46,7 +46,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
-    bat gnome.gnome-tweaks microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 nerdfonts gnome.gnome-terminal 
+    bat gnome.gnome-tweaks microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 gnome.gnome-terminal 
     joypixels rustc cargo unzip
   ];
 
