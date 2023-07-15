@@ -144,6 +144,8 @@
    rust-tools-nvim
    coc-rust-analyzer
    nvim-treesitter-parsers.rust
+   nvim-treesitter-parsers.cpp
+   nvim-treesitter-parsers.c
    coc-rls
    coc-clangd
    clangd_extensions-nvim
