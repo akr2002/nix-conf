@@ -60,6 +60,7 @@
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
     cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
+    lf
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -90,6 +91,7 @@
         eval "$(direnv hook zsh)"
         eval "$(starship init zsh)"
         alias vv=nvim
+        alias yt-dlp-1080="yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
         '';
   };
 
