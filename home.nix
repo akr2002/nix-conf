@@ -80,7 +80,7 @@
     enable = true;
     enableCompletion = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     # enableBashCompletion = true;
     oh-my-zsh = {
       enable = true;
