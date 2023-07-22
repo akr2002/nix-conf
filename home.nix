@@ -60,7 +60,7 @@
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
     cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
-    lf
+    lf vlc
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -146,6 +146,7 @@
    nvim-treesitter-parsers.rust
    nvim-treesitter-parsers.cpp
    nvim-treesitter-parsers.c
+   nvim-treesitter-parsers.latex
    coc-rls
    coc-clangd
    clangd_extensions-nvim
