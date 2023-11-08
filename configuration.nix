@@ -50,6 +50,10 @@ flake-overlays:
   # Enable swap on luks
   boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".device = "/dev/disk/by-uuid/c0ef1093-a74e-4491-8c73-0009d3377c19";
   boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".allowDiscards = true;
+
+  # Allow discard on /
+  boot.initrd.luks.devices."luks-8c3d3196-26a2-4c79-8e1e-11160951ba8c".allowDiscards = true;
 
   networking.hostName = "bridge"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
