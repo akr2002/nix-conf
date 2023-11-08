@@ -1,6 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
+flake-overlays:
 
 { config, pkgs, ... }:
 
@@ -20,10 +21,19 @@
         };
     };
 
+  # Allow non-free firmware
+  hardware.firmware = with pkgs; [ firmwareLinuxNonfree ];
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [ vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver ];
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # Kernel modules
   boot.kernelModules = [ "kvm-intel" "snd-hda-intel" "i8042" ];
@@ -129,7 +139,7 @@
     isNormalUser = true;
     description = "user";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm"];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" ];
     packages = with pkgs; [
       kate
       vim
@@ -150,7 +160,13 @@
   virtualisation.libvirtd.enable = true;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    packageOverrides = pkgs: {
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      };
+    };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -172,6 +188,8 @@
     gnomeExtensions.maximize-to-empty-workspace
     gnomeExtensions.hide-top-bar
     gnomeExtensions.hide-activities-button
+
+    plasma5Packages.bismuth
  ];
 
   programs.neovim = {
