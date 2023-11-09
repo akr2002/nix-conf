@@ -150,6 +150,7 @@
    coc-rls
    coc-clangd
    clangd_extensions-nvim
+   vim-clang-format
    ]);
  };
 
