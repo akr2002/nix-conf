@@ -41,6 +41,7 @@ flake-overlays:
     options snd-hda-intel model=alc255-acer,dell-headset-multi
     options i8042 nopnp=1
   '';
+  boot.kernelParams = [ "allow-discards" ];
 
   # Setup keyfile
   boot.initrd.secrets = {
