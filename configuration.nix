@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-flake-overlays:
+# flake-overlays:
 
 { config, pkgs, ... }:
 
@@ -17,6 +17,7 @@ flake-overlays:
       settings = {
           General = {
               Experimental = "true";
+              Enable = "Source,Sink,Media,Socket";
             };
         };
     };
@@ -95,6 +96,14 @@ flake-overlays:
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
 
+# Change DNS
+networking = {
+  extraHosts = ''
+    185.199.108.133 raw.githubusercontent.com
+  '';
+  nameservers = [ "1.1.1.1" "9.9.9.9" ];
+};
+
 # Enable dde 
   # services.xserver.desktopManager.deepin.enable = true;
   # services.deepin = {
@@ -163,6 +172,7 @@ flake-overlays:
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.waydroid.enable = true;
 
   # Allow unfree packages
   nixpkgs.config = {
@@ -215,8 +225,17 @@ flake-overlays:
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.nginx = {
+    enable = true;
+    virtualHosts = {
+      "textgen.bridge" = {
+        locations."/".proxyPass = "http://0.0.0.0:7860";
+      };
+    };
+  };
+
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 80 443 7860 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
