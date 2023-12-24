@@ -60,11 +60,10 @@
     tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
     cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
-    lf vlc
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
-      "electron-21.4.0"
+      "electron-25.9.0"
     ];
 
   programs.bash = {
@@ -174,12 +173,12 @@
    };
 
   programs.bat = {
-      enable = true;
+      enable = false;
       config = {
           theme = "ansi";
         };
     };
-
+  
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
