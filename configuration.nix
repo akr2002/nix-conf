@@ -179,6 +179,7 @@ networking = {
 
   virtualisation.libvirtd.enable = true;
   virtualisation.waydroid.enable = true;
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config = {
