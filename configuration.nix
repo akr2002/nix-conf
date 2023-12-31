@@ -85,6 +85,12 @@
     LC_TIME = "en_IN";
   };
 
+  fonts.packages = with pkgs; [
+    source-han-serif
+    noto-fonts-emoji
+    noto-fonts-cjk
+  ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
