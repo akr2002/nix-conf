@@ -159,7 +159,7 @@ networking = {
     isNormalUser = true;
     description = "user";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" "docker" ];
     packages = with pkgs; [
       kate
       vim
@@ -170,6 +170,7 @@ networking = {
       virt-viewer
       virt-manager
       OVMF
+      dnsmasq
     ];
   }; 
   environment = {
