@@ -3,12 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 # flake-overlays:
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
     ];
 
   # Enable Bluetooth
@@ -33,7 +34,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.supportedFilesystems = [ "ntfs" ];
 
   # Kernel modules
@@ -45,17 +46,19 @@
   boot.kernelParams = [ "allow-discards" ];
 
   # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
+  # boot.initrd.secrets = {
+  #   "/crypto_keyfile.bin" = null;
+  # };
 
+  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".device = "/dev/disk/by-uuid/c0ef1093-a74e-4491-8c73-0009d3377c19";
-  boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".allowDiscards = true;
+  boot.initrd.luks.devices."luks-3b571a97-616b-4dd7-9abb-d1e0491d178a".device = "/dev/disk/by-uuid/3b571a97-616b-4dd7-9abb-d1e0491d178a";
+  # boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-3b571a97-616b-4dd7-9abb-d1e0491d178a".allowDiscards = true;
 
   # Allow discard on /
-  boot.initrd.luks.devices."luks-8c3d3196-26a2-4c79-8e1e-11160951ba8c".allowDiscards = true;
+  boot.initrd.luks.devices."a09877ce-f520-429a-9f3b-57b073e4d662".device = "/dev/disk/by-uuid/a09877ce-f520-429a-9f3b-57b073e4d662";
+  boot.initrd.luks.devices."a09877ce-f520-429a-9f3b-57b073e4d662".allowDiscards = true;
 
   networking.hostName = "bridge"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -176,6 +179,14 @@ networking = {
       dnsmasq
     ];
   }; 
+  
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "user" = import ./home.nix;
+    };
+  };
+
   environment = {
       homeBinInPath = true; # Include ~/bin/ in $PATH
       localBinInPath = true; # Include ~/.local/bin in $PATH
