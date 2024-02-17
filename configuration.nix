@@ -57,8 +57,8 @@
   boot.initrd.luks.devices."luks-3b571a97-616b-4dd7-9abb-d1e0491d178a".allowDiscards = true;
 
   # Allow discard on /
-  boot.initrd.luks.devices."a09877ce-f520-429a-9f3b-57b073e4d662".device = "/dev/disk/by-uuid/a09877ce-f520-429a-9f3b-57b073e4d662";
-  boot.initrd.luks.devices."a09877ce-f520-429a-9f3b-57b073e4d662".allowDiscards = true;
+  boot.initrd.luks.devices."luks-a09877ce-f520-429a-9f3b-57b073e4d662".device = "/dev/disk/by-uuid/a09877ce-f520-429a-9f3b-57b073e4d662";
+  boot.initrd.luks.devices."luks-a09877ce-f520-429a-9f3b-57b073e4d662".allowDiscards = true;
 
   networking.hostName = "bridge"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
