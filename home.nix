@@ -102,9 +102,9 @@
     enable = true;
     extraConfig = "include ~/.config/kitty/current-theme.conf 
     font_family JetBrainsMono Nerd Font
-    bold_font auto
-    italic_font auto
-    bold_italic_font auto
+    bold_font JetBrainsMono NF Bold
+    italic_font JetBrainsMono NF Italic
+    bold_italic_font JetBrainsMono NF Bold Italic
     wayland_titlebar_color system
     hide_window_decorations no
     linux_display_server x11
