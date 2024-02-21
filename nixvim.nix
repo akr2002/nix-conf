@@ -125,6 +125,12 @@
       options.desc = "Toggle Neotree";
     }
     {
+      mode = "n";
+      key = "<leader>tf";
+      action = "<cmd>FloatermToggle<cr>";
+      options.desc = "Togggle floating terminal";
+    }
+    {
       key = "<leader>oe";
       action = ":Ollama Explain_Code<CR>";
       options.desc = "Explain Code Snippet";
