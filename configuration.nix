@@ -38,12 +38,17 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   # Kernel modules
-  boot.kernelModules = [ "kvm-intel" "snd-hda-intel" "i8042" ];
+  boot.kernelModules = [ "kvm-intel" "snd-hda-intel" "i8042" "nf_nat_ftp" ];
   boot.extraModprobeConfig = ''
     options snd-hda-intel model=alc255-acer,dell-headset-multi
     options i8042 nopnp=1
   '';
   boot.kernelParams = [ "allow-discards" ];
+
+  boot.kernel.sysctl = {
+    "net.ipv4.conf.all.forwarding" = true;
+    "net.ipv4.conf.default.forwarding" = true;
+  };
 
   # Setup keyfile
   # boot.initrd.secrets = {
@@ -114,6 +119,13 @@ networking = {
     185.199.108.133 raw.githubusercontent.com
   '';
   nameservers = [ "1.1.1.1" "9.9.9.9" ];
+  bridges = { incusbr0.interfaces = []; };
+  firewall.extraCommands = ''
+    iptables -A INPUT incusbr0 -j ACCEPT
+    iptables -A FORWARD -o incusbr0 -j ACCEPT
+    iptables -A FORWARD -i incusbr0 -j ACCEPT
+    iptables -A OUTPUT -o incusbr0 -j ACCEPT
+  '';
 };
 
 # Enable dde 
@@ -165,7 +177,7 @@ networking = {
     isNormalUser = true;
     description = "user";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" "docker" "lxc" "incus-admin" ];
     packages = with pkgs; [
       kate
       vim
@@ -195,6 +207,9 @@ networking = {
   virtualisation.libvirtd.enable = true;
   virtualisation.waydroid.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.lxc.enable = true;
+  virtualisation.lxc.lxcfs.enable = true;
+  virtualisation.incus.enable = true;
 
   # Allow unfree packages
   nixpkgs.config = {
