@@ -9,6 +9,10 @@
     expandtab = true;
   };
 
+  extraConfigLuaPre = ''
+    vim.loader.enable()
+  '';
+
   globals.mapleader = " ";
   keymaps = [
     {
@@ -221,7 +225,7 @@
       enable = true;
     };
     cmp-nvim-ultisnips = {
-      enable = true;
+      enable = false;
     };
     cmp-omni = {
       enable = true;
@@ -385,6 +389,7 @@
     };
     lightline = {
       enable = true;
+      colorscheme = "gruvbox";
     };
     lint = {
       enable = true;
