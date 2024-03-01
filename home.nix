@@ -144,6 +144,7 @@
     wayland_titlebar_color system
     hide_window_decorations no
     linux_display_server x11
+    enabled_layouts splits
     confirm_os_window_close 0
     ";
   };
