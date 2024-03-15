@@ -78,6 +78,10 @@
     unmanaged = [ "virbr0" "docker0" ];
   };
 
+  networking.nftables.enable = true;
+
+  networking.firewall.trustedInterfaces = [ "incusbr0" ];
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -120,12 +124,12 @@ networking = {
   '';
   nameservers = [ "1.1.1.1" "9.9.9.9" ];
   bridges = { incusbr0.interfaces = []; };
-  firewall.extraCommands = ''
-    iptables -A INPUT incusbr0 -j ACCEPT
-    iptables -A FORWARD -o incusbr0 -j ACCEPT
-    iptables -A FORWARD -i incusbr0 -j ACCEPT
-    iptables -A OUTPUT -o incusbr0 -j ACCEPT
-  '';
+  # firewall.extraCommands = ''
+  #   iptables -A INPUT incusbr0 -j ACCEPT
+  #   iptables -A FORWARD -o incusbr0 -j ACCEPT
+  #   iptables -A FORWARD -i incusbr0 -j ACCEPT
+  #   iptables -A OUTPUT -o incusbr0 -j ACCEPT
+  # '';
 };
 
 # Enable dde 
