@@ -256,10 +256,12 @@
     };
     coq-nvim = {
       enable = true;
-      alwaysComplete = true;
-      autoStart = true;
+      settings = {
+        completion.always = true;
+        auto_start = true;
+        keymap.recommended = true;
+      };
       installArtifacts = true;
-      recommendedKeymaps = true;
     };
     crates-nvim = {
       enable = true;
@@ -482,13 +484,15 @@
     };
     magma-nvim = {
       enable = true;
-      automaticallyOpenOutput = true;
-      imageProvider = "ueberzug";
-      wrapOutput = true;
+      settings = {
+        automatically_open_output = true;
+        image_provider = "ueberzug";
+        wrap_output = true;
+      };
     };
     markdown-preview = {
       enable = true;
-      autoStart = true;
+      settings.auto_start = true;
     };
     navbuddy = {
       enable = true;
@@ -525,10 +529,10 @@
         bufLabel = true;
       };
     };
-    nvim-cmp = {
+    cmp = {
       enable = true;
-      autoEnableSources = true;
-      formatting.expandableIndicator = true;
+      # autoEnableSources = true;
+      settings.formatting.expandable_indicator = true;
     };
     nvim-colorizer = {
       enable = true;
@@ -552,6 +556,7 @@
     };
     project-nvim = {
       enable = true;
+      enableTelescope = true;
     };
     quickmath = {
       enable = true;
@@ -593,7 +598,6 @@
         };
         fzy-native.enable = true;
         media_files.enable = true;
-        project-nvim.enable = true;
         undo.enable = true;
       };
     };
