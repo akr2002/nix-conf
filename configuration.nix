@@ -117,6 +117,12 @@
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
 
+  # Enable hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
 # Change DNS
 networking = {
   extraHosts = ''
@@ -149,6 +155,11 @@ networking = {
     xkb.variant = "";
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -164,8 +175,6 @@ networking = {
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
@@ -206,6 +215,10 @@ networking = {
   environment = {
       homeBinInPath = true; # Include ~/bin/ in $PATH
       localBinInPath = true; # Include ~/.local/bin in $PATH
+      sessionVariables = {
+        # tell electron apps to use wayland
+        NIXOS_OZONW_WL = "1";
+      };
   };
 
   virtualisation.libvirtd.enable = true;
@@ -247,6 +260,18 @@ networking = {
     libsForQt5.bismuth
 
     plasma5Packages.bismuth
+
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+      )
+
+    dunst
+    libnotify
+    swww
+    rofi-wayland
+    wl-clipboard
+    grim
  ];
 
   programs.neovim = {
