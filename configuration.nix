@@ -117,6 +117,9 @@
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
 
+  # Debug infod
+  services.nixseparatedebuginfod.enable = true;
+
   # Enable hyprland
   programs.hyprland = {
     enable = true;
