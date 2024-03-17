@@ -111,7 +111,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Enable GNOME desktop environment
   services.xserver.displayManager.gdm.enable = false;
@@ -244,6 +244,7 @@ networking = {
     gnomeExtensions.maximize-to-empty-workspace
     gnomeExtensions.hide-top-bar
     gnomeExtensions.hide-activities-button
+    libsForQt5.bismuth
 
     plasma5Packages.bismuth
  ];
