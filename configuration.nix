@@ -207,6 +207,7 @@ networking = {
       virt-manager
       OVMF
       dnsmasq
+      networkmanagerapplet
     ];
   }; 
   
@@ -279,6 +280,8 @@ networking = {
     rofi-wayland
     wl-clipboard
     grim
+
+    pamixer
  ];
 
   programs.neovim = {
