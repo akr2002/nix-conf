@@ -117,6 +117,8 @@
   services.xserver.displayManager.gdm.enable = false;
   services.xserver.desktopManager.gnome.enable = false;
 
+  programs.xwayland.enable = true;
+
   # Debug infod
   services.nixseparatedebuginfod.enable = true;
 
@@ -263,6 +265,8 @@ networking = {
     libsForQt5.bismuth
 
     plasma5Packages.bismuth
+
+    kdePackages.ksystemstats
 
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
