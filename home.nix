@@ -258,6 +258,9 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   #};
+  home.file = {
+    ".config/hypr".source = ./config/hypr;
+  };
 
   # You can also manage environment variables but you will have to manually
   # source
