@@ -210,6 +210,21 @@ networking = {
       networkmanagerapplet
     ];
   }; 
+
+  users.users.root = {
+    subUidRanges = [
+      {
+        count = 1000;
+        startUid = 1000;
+      }
+    ];
+    subGidRanges = [
+      {
+        count = 1000;
+        startGid = 1000;
+      }
+    ];
+  };
   
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
