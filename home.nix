@@ -65,6 +65,7 @@
     libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
     cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
     ripgrep
+    inputs.nv.packages.x86_64-linux.default
   ];
 
     nixpkgs.config.permittedInsecurePackages = [
@@ -170,7 +171,7 @@
     '';
   };
 
-  programs.nixvim = import ./nixvim.nix pkgs;
+  #programs.nixvim = import ./nixvim.nix pkgs;
 
  programs.neovim = {
    enable = false;
