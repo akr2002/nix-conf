@@ -13,18 +13,24 @@
       url = "github:akr2002/nv";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nyaa = {
+      url = "github:akr2002/nyaa";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: 
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-  in
-  {
+  in {
     nixosConfigurations.bridge = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
-      modules = [ 
-        ./configuration.nix 
+      modules = [
+        ./configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };
