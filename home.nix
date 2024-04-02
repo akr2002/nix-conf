@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "user";
@@ -29,15 +32,15 @@
   home.sessionVariables = {
     # default editor
     EDITOR = "nvim";
-    NIXPKGS_ALLOW_UNFREE=1;
-    
-    # sshaskpass 
+    NIXPKGS_ALLOW_UNFREE = 1;
+
+    # sshaskpass
     SSH_ASKPASS = "/home/user/.nix-profile/bin/ksshaskpass";
     SSH_ASKPASS_REQUIRE = "prefer";
 
     # Store git credentials in KDE Wallet
     GIT_ASKPASS = "/home/user/.nix-profile/bin/ksshaskpass";
-    };
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -58,26 +61,70 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    xsel wget neofetch htop oh-my-zsh git chromium plasma5Packages.qtstyleplugin-kvantum kdeconnect
-    microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 joypixels rustc cargo unzip ocs-url
-    nextcloud-client duf foliate mpv obsidian dino aria2 bitwarden kitty-themes p7zip
-    tdesktop libreoffice-fresh jetbrains-mono yakuake krita filelight inkscape yt-dlp ranger
-    libsForQt5.kwallet libsForQt5.kwallet-pam libsForQt5.kwalletmanager libsForQt5.ksshaskpass
-    cachix direnv git-lfs nix-direnv zathura starship gnome.gnome-tweaks gnome-extension-manager
+    xsel
+    wget
+    neofetch
+    htop
+    oh-my-zsh
+    git
+    chromium
+    plasma5Packages.qtstyleplugin-kvantum
+    kdeconnect
+    microsoft-edge
+    vivaldi
+    vivaldi-ffmpeg-codecs
+    x264
+    joypixels
+    rustc
+    cargo
+    unzip
+    ocs-url
+    nextcloud-client
+    duf
+    foliate
+    mpv
+    obsidian
+    dino
+    aria2
+    bitwarden
+    kitty-themes
+    p7zip
+    tdesktop
+    libreoffice-fresh
+    jetbrains-mono
+    yakuake
+    krita
+    filelight
+    inkscape
+    yt-dlp
+    ranger
+    libsForQt5.kwallet
+    libsForQt5.kwallet-pam
+    libsForQt5.kwalletmanager
+    libsForQt5.ksshaskpass
+    cachix
+    direnv
+    git-lfs
+    nix-direnv
+    zathura
+    starship
+    gnome.gnome-tweaks
+    gnome-extension-manager
     ripgrep
     inputs.nv.packages.x86_64-linux.default
+    inputs.nyaa.packages.x86_64-linux.default
   ];
 
-    nixpkgs.config.permittedInsecurePackages = [
-      "electron-25.9.0"
-    ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
 
   programs.bash = {
     enable = false;
     bashrcExtra = ''
-        . ~/.bashrc
-        eval "$(direnv hook bash)"
-        eval "$(starship init bash)"
+      . ~/.bashrc
+      eval "$(direnv hook bash)"
+      eval "$(starship init bash)"
     '';
   };
 
@@ -93,11 +140,11 @@
       plugins = ["git" "colored-man-pages" "extract" "sudo"];
     };
     initExtra = ''
-        eval "$(direnv hook zsh)"
-        eval "$(starship init zsh)"
-        alias vv=nvim
-        alias yt-dlp-1080="yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
-        '';
+      eval "$(direnv hook zsh)"
+      eval "$(starship init zsh)"
+      alias vv=nvim
+      alias yt-dlp-1080="yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+    '';
   };
 
   programs.kitty = {
@@ -116,7 +163,7 @@
       # one above the other if the existing window is tall
       "f4" = "launch --location=split";
 
-      # Rotate the current split, changing its split axis from vertical to 
+      # Rotate the current split, changing its split axis from vertical to
       # horizontal or vice versa
       "f7" = "layout_action rotate";
 
@@ -156,7 +203,7 @@
     mouse = true;
     plugins = with pkgs.tmuxPlugins; [
       better-mouse-mode
-      #dracula 
+      #dracula
       #gruvbox
       #nord
       #onedark-theme
@@ -166,60 +213,60 @@
       tmux-fzf
     ];
     extraConfig = ''
-    set-option -g mouse on
-    set -g default-terminal "screen-256color"
+      set-option -g mouse on
+      set -g default-terminal "screen-256color"
     '';
   };
 
   #programs.nixvim = import ./nixvim.nix pkgs;
 
- programs.neovim = {
-   enable = false;
-   defaultEditor = true;
-   # coc.enable = true;
-   # extraLuaConfig = ''
-   #  for _, source in ipairs {
-	  #   "astronvim.bootstrap",
-	  #   "astronvim.options",
-	  #   "astronvim.lazy",
-	  #   "astronvim.autocmds",
-	  #   "astronvim.mappings",
-	  # } do
-	  #   local status_ok, fault = pcall(require, source)
-	  #   if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault
-	  #   ) end
-	  # end
-   #
-	  # if astronvim.default_colorscheme then
-	  # 	if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
-		 #  requrie("astronvim.utils").notify(
-		 #    "Error setting up colorscheme: " .. astronvim.default_colorscheme,
-		 #    vim.log.levels.ERROR
-		 #  )
-		 #  end
-	  # end
-   #
-	  # require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
-   #    '';
-   #
-   # plugins = (with pkgs.vimPlugins; [
-   # rust-vim
-   # rust-tools-nvim
-   # coc-rust-analyzer
-   # nvim-treesitter-parsers.rust
-   # nvim-treesitter-parsers.cpp
-   # nvim-treesitter-parsers.c
-   # nvim-treesitter-parsers.latex
-   # coc-rls
-   # coc-clangd
-   # clangd_extensions-nvim
-   # vim-clang-format
-   # ]);
- };
+  programs.neovim = {
+    enable = false;
+    defaultEditor = true;
+    # coc.enable = true;
+    # extraLuaConfig = ''
+    #  for _, source in ipairs {
+    #   "astronvim.bootstrap",
+    #   "astronvim.options",
+    #   "astronvim.lazy",
+    #   "astronvim.autocmds",
+    #   "astronvim.mappings",
+    # } do
+    #   local status_ok, fault = pcall(require, source)
+    #   if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault
+    #   ) end
+    # end
+    #
+    # if astronvim.default_colorscheme then
+    # 	if not pcall(vim.cmd.colorscheme, astronvim.default_colorscheme) then
+    #  requrie("astronvim.utils").notify(
+    #    "Error setting up colorscheme: " .. astronvim.default_colorscheme,
+    #    vim.log.levels.ERROR
+    #  )
+    #  end
+    # end
+    #
+    # require("astronvim.utils").conditional_func(astronvim.user_opts("polish", nil, false), true)
+    #    '';
+    #
+    # plugins = (with pkgs.vimPlugins; [
+    # rust-vim
+    # rust-tools-nvim
+    # coc-rust-analyzer
+    # nvim-treesitter-parsers.rust
+    # nvim-treesitter-parsers.cpp
+    # nvim-treesitter-parsers.c
+    # nvim-treesitter-parsers.latex
+    # coc-rls
+    # coc-clangd
+    # clangd_extensions-nvim
+    # vim-clang-format
+    # ]);
+  };
 
- programs.vscode = {
-     enable = true;
-     extensions = (with pkgs.vscode-extensions;[
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
       arrterian.nix-env-selector
       mkhl.direnv
       jnoortheen.nix-ide
@@ -233,31 +280,31 @@
       rust-lang.rust-analyzer
 
       waderyan.gitblame
-     ]);
-   };
+    ];
+  };
 
   programs.bat = {
-      enable = true;
-      config = {
-          theme = "ansi";
-        };
+    enable = true;
+    config = {
+      theme = "ansi";
     };
- 
+  };
+
   services.mpris-proxy.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   #home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+  # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+  # # symlink to the Nix store copy.
+  # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  # # You can also set the file content immediately.
+  # ".gradle/gradle.properties".text = ''
+  #   org.gradle.console=verbose
+  #   org.gradle.daemon.idletimeout=3600000
+  # '';
   #};
   home.file = {
     ".config/hypr".source = ./config/hypr;
