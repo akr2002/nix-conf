@@ -2,48 +2,51 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 # flake-overlays:
-
-{ config, pkgs, lib, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    ];
+  ];
 
   # Enable Bluetooth
   hardware.bluetooth = {
-      enable = true;
-      settings = {
-          General = {
-              Experimental = "true";
-              Enable = "Source,Sink,Media,Socket";
-            };
-        };
+    enable = true;
+    settings = {
+      General = {
+        Experimental = "true";
+        Enable = "Source,Sink,Media,Socket";
+      };
     };
+  };
 
   # Allow non-free firmware
-  hardware.firmware = with pkgs; [ firmwareLinuxNonfree ];
+  hardware.firmware = with pkgs; [firmwareLinuxNonfree];
 
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [ vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver ];
+    extraPackages = with pkgs; [vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver];
   };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   # Kernel modules
-  boot.kernelModules = [ "kvm-intel" "snd-hda-intel" "i8042" "nf_nat_ftp" ];
+  boot.kernelModules = ["kvm-intel" "snd-hda-intel" "i8042" "nf_nat_ftp"];
   boot.extraModprobeConfig = ''
     options snd-hda-intel model=alc255-acer,dell-headset-multi
     options i8042 nopnp=1
   '';
-  boot.kernelParams = [ "allow-discards" ];
+  boot.kernelParams = ["allow-discards"];
 
   boot.kernel.sysctl = {
     "net.ipv4.conf.all.forwarding" = true;
@@ -55,7 +58,7 @@
   #   "/crypto_keyfile.bin" = null;
   # };
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = ["noatime" "nodiratime" "discard"];
   # Enable swap on luks
   boot.initrd.luks.devices."luks-3b571a97-616b-4dd7-9abb-d1e0491d178a".device = "/dev/disk/by-uuid/3b571a97-616b-4dd7-9abb-d1e0491d178a";
   # boot.initrd.luks.devices."luks-c0ef1093-a74e-4491-8c73-0009d3377c19".keyFile = "/crypto_keyfile.bin";
@@ -75,12 +78,12 @@
   # Enable networking
   networking.networkmanager = {
     enable = true;
-    unmanaged = [ "virbr0" "docker0" ];
+    unmanaged = ["virbr0" "docker0"];
   };
 
   networking.nftables.enable = true;
 
-  networking.firewall.trustedInterfaces = [ "incusbr0" ];
+  networking.firewall.trustedInterfaces = ["incusbr0"];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -128,22 +131,22 @@
     xwayland.enable = true;
   };
 
-# Change DNS
-networking = {
-  extraHosts = ''
-    185.199.108.133 raw.githubusercontent.com
-  '';
-  nameservers = [ "1.1.1.1" "9.9.9.9" ];
-  bridges = { incusbr0.interfaces = []; };
-  # firewall.extraCommands = ''
-  #   iptables -A INPUT incusbr0 -j ACCEPT
-  #   iptables -A FORWARD -o incusbr0 -j ACCEPT
-  #   iptables -A FORWARD -i incusbr0 -j ACCEPT
-  #   iptables -A OUTPUT -o incusbr0 -j ACCEPT
-  # '';
-};
+  # Change DNS
+  networking = {
+    extraHosts = ''
+      185.199.108.133 raw.githubusercontent.com
+    '';
+    nameservers = ["1.1.1.1" "9.9.9.9"];
+    bridges = {incusbr0.interfaces = [];};
+    # firewall.extraCommands = ''
+    #   iptables -A INPUT incusbr0 -j ACCEPT
+    #   iptables -A FORWARD -o incusbr0 -j ACCEPT
+    #   iptables -A FORWARD -i incusbr0 -j ACCEPT
+    #   iptables -A OUTPUT -o incusbr0 -j ACCEPT
+    # '';
+  };
 
-# Enable dde 
+  # Enable dde
   # services.xserver.desktopManager.deepin.enable = true;
   # services.deepin = {
   #     dde-daemon.enable = true;
@@ -162,7 +165,7 @@ networking = {
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    #extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   # Enable CUPS to print documents.
@@ -188,14 +191,14 @@ networking = {
 
   programs.zsh.enable = true;
 
-  nix.settings.trusted-users = [ "root" "user" ];
+  nix.settings.trusted-users = ["root" "user"];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
     description = "user";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" "docker" "lxc" "incus-admin" ];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" "docker" "lxc" "incus-admin"];
     packages = with pkgs; [
       kate
       vim
@@ -209,7 +212,7 @@ networking = {
       dnsmasq
       networkmanagerapplet
     ];
-  }; 
+  };
 
   users.users.root = {
     subUidRanges = [
@@ -225,21 +228,21 @@ networking = {
       }
     ];
   };
-  
+
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "user" = import ./home.nix;
     };
   };
 
   environment = {
-      homeBinInPath = true; # Include ~/bin/ in $PATH
-      localBinInPath = true; # Include ~/.local/bin in $PATH
-      sessionVariables = {
-        # tell electron apps to use wayland
-        NIXOS_OZONW_WL = "1";
-      };
+    homeBinInPath = true; # Include ~/bin/ in $PATH
+    localBinInPath = true; # Include ~/.local/bin in $PATH
+    sessionVariables = {
+      # tell electron apps to use wayland
+      NIXOS_OZONW_WL = "1";
+    };
   };
 
   virtualisation.libvirtd.enable = true;
@@ -254,9 +257,9 @@ networking = {
     allowUnfree = true;
 
     packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-      };
+      vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
     };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -284,10 +287,11 @@ networking = {
 
     kdePackages.ksystemstats
 
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    (
+      waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       })
-      )
+    )
 
     dunst
     libnotify
@@ -297,7 +301,7 @@ networking = {
     grim
 
     pamixer
- ];
+  ];
 
   programs.neovim = {
     enable = true;
@@ -327,7 +331,7 @@ networking = {
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 443 7860 ];
+  networking.firewall.allowedTCPPorts = [80 443 7860];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -344,5 +348,4 @@ networking = {
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
