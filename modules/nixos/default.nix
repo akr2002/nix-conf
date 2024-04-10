@@ -9,5 +9,6 @@
     ./kernel
     ./locale
     ./networking
+    ./sound
   ];
 }
