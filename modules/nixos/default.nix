@@ -3,6 +3,7 @@
     ./bluetooth
     ./bootloader
     ./filesystem
+    ./hardware
     ./kernel
   ];
 }

@@ -18,12 +18,6 @@
   # Enable Bluetooth
 
   # Allow non-free firmware
-  hardware.firmware = with pkgs; [firmwareLinuxNonfree];
-
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver];
-  };
 
   # Bootloader.
 
