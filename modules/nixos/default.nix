@@ -5,6 +5,7 @@
     ./filesystem
     ./hardware
     ./kernel
+    ./locale
     ./networking
   ];
 }
