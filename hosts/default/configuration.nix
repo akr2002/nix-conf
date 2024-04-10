@@ -28,23 +28,6 @@
   #   "/crypto_keyfile.bin" = null;
   # };
 
-  networking.hostName = "bridge"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager = {
-    enable = true;
-    unmanaged = ["virbr0" "docker0"];
-  };
-
-  networking.nftables.enable = true;
-
-  networking.firewall.trustedInterfaces = ["incusbr0" "virbr0"];
-
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -92,19 +75,6 @@
   };
 
   # Change DNS
-  networking = {
-    extraHosts = ''
-      185.199.108.133 raw.githubusercontent.com
-    '';
-    nameservers = ["1.1.1.1" "9.9.9.9"];
-    bridges = {incusbr0.interfaces = [];};
-    # firewall.extraCommands = ''
-    #   iptables -A INPUT incusbr0 -j ACCEPT
-    #   iptables -A FORWARD -o incusbr0 -j ACCEPT
-    #   iptables -A FORWARD -i incusbr0 -j ACCEPT
-    #   iptables -A OUTPUT -o incusbr0 -j ACCEPT
-    # '';
-  };
 
   # Enable dde
   # services.xserver.desktopManager.deepin.enable = true;
