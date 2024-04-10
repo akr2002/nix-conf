@@ -164,15 +164,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.nginx = {
-    enable = true;
-    virtualHosts = {
-      "textgen.bridge" = {
-        locations."/".proxyPass = "http://0.0.0.0:7860";
-      };
-    };
-  };
-
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [80 443 7860];
   # networking.firewall.allowedUDPPorts = [ ... ];
