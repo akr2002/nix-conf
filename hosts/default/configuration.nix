@@ -144,42 +144,6 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    #gnome.adwaita-icon-theme
-    gnomeExtensions.aylurs-widgets
-    gnomeExtensions.system-monitor-next
-    gnomeExtensions.wireless-hid
-    gnomeExtensions.autohide-battery
-    gnomeExtensions.bluetooth-battery
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.lock-keys
-    gnomeExtensions.openweather
-    gnomeExtensions.media-controls
-    gnomeExtensions.ideapad-controls
-    gnomeExtensions.maximize-to-empty-workspace
-    gnomeExtensions.hide-top-bar
-    gnomeExtensions.hide-activities-button
-    libsForQt5.bismuth
-
-    plasma5Packages.bismuth
-
-    kdePackages.ksystemstats
-
-    (
-      waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      })
-    )
-
-    dunst
-    libnotify
-    swww
-    rofi-wayland
-    wl-clipboard
-    grim
-
-    pamixer
-
-    virtiofsd
   ];
 
   programs.neovim = {
