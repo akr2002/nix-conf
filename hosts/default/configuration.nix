@@ -35,23 +35,8 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.supportedFilesystems = ["ntfs"];
 
   # Kernel modules
-  boot.kernelModules = ["kvm-intel" "snd-hda-intel" "i8042" "nf_nat_ftp"];
-  boot.extraModprobeConfig = ''
-    options snd-hda-intel model=alc255-acer,dell-headset-multi
-    options i8042 nopnp=1
-  '';
-  boot.kernelParams = ["allow-discards"];
-
-  boot.kernel.sysctl = {
-    "net.ipv4.conf.all.forwarding" = true;
-    "net.ipv4.conf.default.forwarding" = true;
-  };
 
   # Setup keyfile
   # boot.initrd.secrets = {
