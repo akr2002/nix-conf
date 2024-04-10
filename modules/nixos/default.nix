@@ -2,6 +2,7 @@
   imports = [
     ./bluetooth
     ./bootloader
+    ./display-manager
     ./filesystem
     ./fonts
     ./hardware

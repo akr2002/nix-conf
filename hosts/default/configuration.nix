@@ -34,18 +34,6 @@
   # Select internationalisation properties.
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Enable GNOME desktop environment
-  services.xserver.displayManager.gdm.enable = false;
-  services.xserver.desktopManager.gnome.enable = false;
-
-  programs.xwayland.enable = true;
-
   # Debug infod
   services.nixseparatedebuginfod.enable = true;
 
