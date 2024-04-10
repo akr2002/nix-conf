@@ -33,12 +33,6 @@
 
   # Select internationalisation properties.
 
-  fonts.packages = with pkgs; [
-    source-han-serif
-    noto-fonts-emoji
-    noto-fonts-cjk
-  ];
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 

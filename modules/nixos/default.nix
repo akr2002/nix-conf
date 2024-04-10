@@ -3,6 +3,7 @@
     ./bluetooth
     ./bootloader
     ./filesystem
+    ./fonts
     ./hardware
     ./kernel
     ./locale
