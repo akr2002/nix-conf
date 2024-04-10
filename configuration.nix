@@ -83,7 +83,7 @@
 
   networking.nftables.enable = true;
 
-  networking.firewall.trustedInterfaces = ["incusbr0"];
+  networking.firewall.trustedInterfaces = ["incusbr0" "virbr0"];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -301,6 +301,8 @@
     grim
 
     pamixer
+
+    virtiofsd
   ];
 
   programs.neovim = {
