@@ -9,7 +9,10 @@ _: {
 
     nftables.enable = true;
 
-    firewall.trustedInterfaces = ["incusbr0" "virbr0"];
+    firewall = {
+      allowedTCPPorts = [80 443];
+      trustedInterfaces = ["incusbr0" "virbr0"];
+    };
 
     extraHosts = ''
       185.199.108.133 raw.githubusercontent.com
