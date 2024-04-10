@@ -10,5 +10,6 @@
     ./locale
     ./networking
     ./sound
+    ./virtualisation
   ];
 }

@@ -122,13 +122,6 @@
     };
   };
 
-  virtualisation.libvirtd.enable = true;
-  virtualisation.waydroid.enable = true;
-  virtualisation.docker.enable = true;
-  virtualisation.lxc.enable = true;
-  virtualisation.lxc.lxcfs.enable = true;
-  virtualisation.incus.enable = true;
-
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
