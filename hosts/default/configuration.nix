@@ -57,15 +57,6 @@
   programs.dconf.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
-
-  xdg.portal = {
-    enable = true;
-    #extraPortals = [pkgs.xdg-desktop-portal-gtk];
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

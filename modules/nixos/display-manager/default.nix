@@ -18,10 +18,14 @@
           plasma6.enable = true;
           gnome.enable = false;
         };
+        xkb = {
+          layout = "us";
+          variant = "";
+        };
       };
       wayland.enable = true;
     };
-
+    xdg.portal.enable = true;
     programs.xwayland.enable = true;
   };
 }
