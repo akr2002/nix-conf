@@ -10,9 +10,9 @@
   home.homeDirectory = "/home/user";
   programs.home-manager.enable = true;
 
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-  ];
+  #imports = [
+  #  inputs.nixvim.homeManagerModules.nixvim
+  #];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
