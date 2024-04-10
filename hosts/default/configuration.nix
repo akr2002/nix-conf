@@ -16,15 +16,6 @@
   ];
 
   # Enable Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    settings = {
-      General = {
-        Experimental = "true";
-        Enable = "Source,Sink,Media,Socket";
-      };
-    };
-  };
 
   # Allow non-free firmware
   hardware.firmware = with pkgs; [firmwareLinuxNonfree];
