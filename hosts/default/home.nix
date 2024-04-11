@@ -106,13 +106,6 @@
     "electron-25.9.0"
   ];
 
-  programs.bat = {
-    enable = true;
-    config = {
-      theme = "ansi";
-    };
-  };
-
   services.mpris-proxy.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
