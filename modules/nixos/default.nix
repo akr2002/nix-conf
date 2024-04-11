@@ -3,6 +3,7 @@
     ./bluetooth
     ./bootloader
     ./display-manager
+    ./editor
     ./filesystem
     ./fonts
     ./hardware
