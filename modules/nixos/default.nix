@@ -3,19 +3,19 @@
     ./bluetooth
     ./bootloader
     ./display-manager
-    #./editor
+    ./editor
     ./environment
     ./filesystem
     ./fonts
-    #./hardware
-    #./hyprland
+    ./hardware
+    ./hyprland
     ./kernel
     ./locale
-    #./networking
+    ./networking
     ./packages
-    #./sound
-    #./ssh
-    #./virtualization
+    ./sound
+    ./ssh
+    ./virtualization
   ];
 
   nix = {
@@ -47,11 +47,11 @@
   # enable modules
   bluetooth.enable = lib.mkDefault true;
   display-manager.enable = lib.mkDefault true;
-  #editor = lib.mkDefault true;
-  #hardware = lib.mkDefault true;
-  #hyprland = lib.mkDefault true;
-  #networking = lib.mkDefault true;
-  #sound = lib.mkDefault true;
-  #ssh = lib.mkDefault true;
-  #virtualization = lib.mkDefault true;
+  editor.enable = lib.mkDefault true;
+  hardware.enable = lib.mkDefault true;
+  hyprland.enable = lib.mkDefault true;
+  networking.enable = lib.mkDefault true;
+  audio.enable = lib.mkDefault true;
+  ssh.enable = lib.mkDefault true;
+  virtualization.enable = lib.mkDefault true;
 }
