@@ -106,15 +106,6 @@
     "electron-25.9.0"
   ];
 
-  programs.bash = {
-    enable = false;
-    bashrcExtra = ''
-      . ~/.bashrc
-      eval "$(direnv hook bash)"
-      eval "$(starship init bash)"
-    '';
-  };
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
