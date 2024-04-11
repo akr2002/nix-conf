@@ -8,6 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/nixos/default.nix
     inputs.home-manager.nixosModules.default
   ];
   # Set your time zone.
@@ -15,12 +16,6 @@
 
   # Debug infod
   services.nixseparatedebuginfod.enable = true;
-
-  # Enable hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   nix.settings.trusted-users = ["root" "user"];
 

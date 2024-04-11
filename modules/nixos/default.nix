@@ -8,6 +8,7 @@
     ./filesystem
     ./fonts
     ./hardware
+    ./hyprland
     ./kernel
     ./locale
     ./networking
@@ -48,6 +49,7 @@
   display-manager.enable = lib.mkDefault true;
   editor = lib.mkDefault true;
   hardware = lib.mkDefault true;
+  hyprland = lib.mkDefault false;
   networking = lib.mkDefault true;
   sound = lib.mkDefault true;
   ssh = lib.mkDefault true;
