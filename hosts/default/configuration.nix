@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-# flake-overlays:
 {
   config,
   pkgs,
@@ -14,26 +10,9 @@
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
-
-  # Enable Bluetooth
-
-  # Allow non-free firmware
-
-  # Bootloader.
-
-  # Kernel modules
-
-  # Setup keyfile
-  # boot.initrd.secrets = {
-  #   "/crypto_keyfile.bin" = null;
-  # };
-
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  # Select internationalisation properties.
-
-  # Enable the X11 windowing system.
   # Debug infod
   services.nixseparatedebuginfod.enable = true;
 
@@ -43,28 +22,10 @@
     xwayland.enable = true;
   };
 
-  # Change DNS
-
-  # Enable dde
-  # services.xserver.desktopManager.deepin.enable = true;
-  # services.deepin = {
-  #     dde-daemon.enable = true;
-  #     dde-api.enable = true;
-  #     app-services.enable = true;
-  #   };
-
   # Enable dconf
   programs.dconf.enable = true;
-
-  # Configure keymap in X11
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   programs.zsh.enable = true;
 
@@ -144,23 +105,8 @@
     defaultEditor = true;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Nix extra options
   nix.extraOptions = ''
