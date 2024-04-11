@@ -29,18 +29,6 @@
   nixpkgs.config.joypixels.acceptLicense = true;
 
   # Manage session variables
-  home.sessionVariables = {
-    # default editor
-    EDITOR = "nvim";
-    NIXPKGS_ALLOW_UNFREE = 1;
-
-    # sshaskpass
-    SSH_ASKPASS = "/home/user/.nix-profile/bin/ksshaskpass";
-    SSH_ASKPASS_REQUIRE = "prefer";
-
-    # Store git credentials in KDE Wallet
-    GIT_ASKPASS = "/home/user/.nix-profile/bin/ksshaskpass";
-  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
