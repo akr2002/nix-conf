@@ -9,6 +9,7 @@
     ./kernel
     ./locale
     ./networking
+    ./packages
     ./sound
     ./virtualisation
   ];
