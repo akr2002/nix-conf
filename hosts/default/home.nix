@@ -25,8 +25,6 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  # Allow non-free packages
-  nixpkgs.config.allowUnfree = true;
   nixpkgs.config.joypixels.acceptLicense = true;
 
   # Manage session variables
