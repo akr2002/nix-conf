@@ -1,4 +1,4 @@
-_: {
+{pkgs, ...}: {
   boot = {
     kernelModules = ["kvm-intel" "snd-hda-intel" "i8042" "nf_nat_ftp"];
     extraModprobeConfig = ''
@@ -10,5 +10,6 @@ _: {
       "net.ipv4.conf.all.forwarding" = true;
       "net.ipv4.conf.default.forwarding" = true;
     };
+    hardware.firmware = with pkgs; [firmwareLinuxNonfree];
   };
 }
