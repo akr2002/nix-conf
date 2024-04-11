@@ -92,9 +92,6 @@
     };
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   # Nix extra options
   nix.extraOptions = ''
     experimental-features = nix-command flakes

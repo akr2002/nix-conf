@@ -12,6 +12,7 @@
     ./networking
     ./packages
     ./sound
+    ./ssh
     ./virtualisation
   ];
 }
