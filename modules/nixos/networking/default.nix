@@ -8,7 +8,7 @@
   };
   config = lib.mkIf config.networking.enable {
     networking = {
-      hostname = "bridge";
+      hostName = "bridge";
 
       networkmanager = {
         enable = true;
