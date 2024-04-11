@@ -42,4 +42,14 @@
     dconf.enable = true;
     zsh.enable = true;
   };
+
+  # enable modules
+  bluetooth.enable = lib.mkDefault true;
+  display-manager.enable = lib.mkDefault true;
+  editor = lib.mkDefault true;
+  hardware = lib.mkDefault true;
+  networking = lib.mkDefault true;
+  sound = lib.mkDefault true;
+  ssh = lib.mkDefault true;
+  virtualisation = lib.mkDefault true;
 }
