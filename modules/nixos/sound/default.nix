@@ -4,9 +4,9 @@
   ...
 }: {
   options = {
-    sound.enable = lib.mkEnableOption "enable sound";
+    audio.enable = lib.mkEnableOption "enable sound";
   };
-  config = lib.mkIf config.sound.enable {
+  config = lib.mkIf config.audio.enable {
     sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
