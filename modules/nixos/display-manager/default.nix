@@ -23,8 +23,8 @@
           layout = "us";
           variant = "";
         };
-        desktopManager.plasma6.enable = true;
       };
+      desktopManager.plasma6.enable = true;
       #wayland.enable = true;
     };
     environment.systemPackages = with pkgs; [
