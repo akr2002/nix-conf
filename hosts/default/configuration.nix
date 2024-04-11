@@ -22,13 +22,6 @@
     xwayland.enable = true;
   };
 
-  # Enable dconf
-  programs.dconf.enable = true;
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  programs.zsh.enable = true;
-
   nix.settings.trusted-users = ["root" "user"];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -82,20 +75,6 @@
       NIXOS_OZONW_WL = "1";
     };
   };
-
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-
-    packageOverrides = pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
-    };
-  };
-
-  # Nix extra options
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
