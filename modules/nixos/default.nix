@@ -4,6 +4,7 @@
     ./bootloader
     ./display-manager
     ./editor
+    ./environment
     ./filesystem
     ./fonts
     ./hardware
