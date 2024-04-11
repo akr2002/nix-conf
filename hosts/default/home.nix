@@ -307,7 +307,7 @@
   # '';
   #};
   home.file = {
-    ".config/hypr".source = ../../config/hypr;
+    ".config/hypr".source = ../../modules/nixos/hyprland/config/hypr;
   };
 
   # You can also manage environment variables but you will have to manually
