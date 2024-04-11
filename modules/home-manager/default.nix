@@ -5,6 +5,7 @@
     ./neovim
     ./session-vars
     ./tmux
+    ./vscode
     ./zsh
   ];
 
@@ -14,5 +15,6 @@
   kitty.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault true;
   tmux.enable = lib.mkDefault true;
+  vsocde.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
 }
