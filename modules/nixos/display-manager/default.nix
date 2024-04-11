@@ -13,41 +13,37 @@
         enable = true;
         displayManager = {
           sddm.enable = true;
-          gnome.enable = false;
+          gdm.enable = false;
         };
         desktopManager = {
-          plasma6.enable = true;
+          #plasma6.enable = true;
           gnome.enable = false;
         };
         xkb = {
           layout = "us";
           variant = "";
         };
+        desktopManager.plasma6.enable = true;
       };
       #wayland.enable = true;
     };
     environment.systemPackages = with pkgs; [
       dunst
       grim
-      (gnomeExtensions.withPackages (
-        ps:
-          with ps; [
-            autohide-battery
-            aylurs-widgets
-            bluetooth-battery
-            clipboard-indicator
-            hide-activities-button
-            hide-top-bar
-            ideapad-controls
-            lock-keys
-            maximize-to-empty-workspace
-            media-controls
-            openweather
-            system-monitor-next
-            wireless-hid
-          ]
-      ))
-      kernelModules.ksystemstats
+      gnomeExtensions.autohide-battery
+      gnomeExtensions.aylurs-widgets
+      gnomeExtensions.bluetooth-battery
+      gnomeExtensions.clipboard-indicator
+      gnomeExtensions.hide-activities-button
+      gnomeExtensions.hide-top-bar
+      gnomeExtensions.ideapad-controls
+      gnomeExtensions.lock-keys
+      gnomeExtensions.maximize-to-empty-workspace
+      gnomeExtensions.media-controls
+      gnomeExtensions.openweather
+      gnomeExtensions.system-monitor-next
+      gnomeExtensions.wireless-hid
+      kdePackages.ksystemstats
       libsForQt5.bismuth
       libnotify
       pamixer
