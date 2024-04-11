@@ -24,7 +24,7 @@
           variant = "";
         };
       };
-      wayland.enable = true;
+      #wayland.enable = true;
     };
     environment.systemPackages = with pkgs; [
       dunst

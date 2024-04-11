@@ -1,12 +1,12 @@
 {
   config,
-  libs,
+  lib,
   ...
 }: {
   options = {
-    virtualisation.enable = lib.mkEnableOption "enable virtualisation";
+    virtualization.enable = lib.mkEnableOption "enable virtualization";
   };
-  config = lib.mkIf config.virtualisation.enable {
+  config = lib.mkIf config.virtualization.enable {
     virtualisation = {
       docker.enable = true;
       incus.enable = true;

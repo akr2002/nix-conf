@@ -10,6 +10,6 @@
       "net.ipv4.conf.all.forwarding" = true;
       "net.ipv4.conf.default.forwarding" = true;
     };
-    hardware.firmware = with pkgs; [firmwareLinuxNonfree];
   };
+  hardware.firmware = with pkgs; [firmwareLinuxNonfree];
 }
