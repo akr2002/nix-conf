@@ -31,7 +31,6 @@
         };
       };
       desktopManager.plasma6.enable = true;
-      #wayland.enable = true;
     };
     environment.systemPackages = with pkgs; [
       dunst
