@@ -23,10 +23,10 @@
         eval "$(${lib.getExe pkgs.direnv} hook zsh)"
         eval "$(starship init zsh)"
       '';
-      home.shellAliases = {
-        vv = "nvim";
-        yt-dlp-1080 = "yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'";
-      };
+    };
+    home.shellAliases = {
+      vv = "nvim";
+      yt-dlp-1080 = "yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'";
     };
   };
 }
