@@ -20,6 +20,7 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+  services.mpris-proxy.enable = true;
 
   bash.enable = lib.mkDefault true;
   bat.enable = lib.mkDefault true;
