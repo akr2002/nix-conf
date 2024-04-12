@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -57,5 +58,6 @@
     confirm_os_window_close 0
     ";
     };
+    home.packages = with pkgs; [kitty-themes];
   };
 }

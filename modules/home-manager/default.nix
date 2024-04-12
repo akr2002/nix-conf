@@ -2,6 +2,7 @@
   imports = [
     ./bash
     ./bat
+    ./browsers
     ./kitty
     ./neovim
     ./session-vars

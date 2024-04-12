@@ -48,12 +48,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    chromium
     plasma5Packages.qtstyleplugin-kvantum
     kdeconnect
-    microsoft-edge
-    vivaldi
-    vivaldi-ffmpeg-codecs
     x264
     joypixels
     rustc
@@ -63,7 +59,6 @@
     mpv
     obsidian
     dino
-    kitty-themes
     tdesktop
     libreoffice-fresh
     jetbrains-mono
@@ -73,10 +68,8 @@
     libsForQt5.kwalletmanager
     libsForQt5.ksshaskpass
     zathura
-    starship
     gnome.gnome-tweaks
     gnome-extension-manager
-    ripgrep
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
