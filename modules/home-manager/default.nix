@@ -8,6 +8,7 @@
     ./kde-utils
     ./kitty
     ./neovim
+    ./office
     ./session-vars
     ./tmux
     ./utils

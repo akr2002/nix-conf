@@ -51,14 +51,9 @@
     x264
     rustc
     cargo
-    nextcloud-client
-    foliate
     mpv
-    obsidian
     dino
     tdesktop
-    libreoffice-fresh
-    zathura
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
