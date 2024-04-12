@@ -66,8 +66,6 @@
     libsForQt5.kwalletmanager
     libsForQt5.ksshaskpass
     zathura
-    gnome.gnome-tweaks
-    gnome-extension-manager
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
