@@ -22,7 +22,6 @@
           gdm.enable = false;
         };
         desktopManager = {
-          #plasma6.enable = true;
           gnome.enable = false;
         };
         xkb = {
