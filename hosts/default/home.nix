@@ -48,8 +48,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    rustc
-    cargo
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

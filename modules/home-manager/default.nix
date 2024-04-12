@@ -4,6 +4,7 @@
     ./bat
     ./browsers
     ./communication
+    ./devel
     ./fonts
     ./gnome-utils
     ./kde-utils
