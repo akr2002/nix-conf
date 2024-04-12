@@ -51,7 +51,6 @@
     plasma5Packages.qtstyleplugin-kvantum
     kdeconnect
     x264
-    joypixels
     rustc
     cargo
     nextcloud-client
@@ -61,7 +60,6 @@
     dino
     tdesktop
     libreoffice-fresh
-    jetbrains-mono
     yakuake
     libsForQt5.kwallet
     libsForQt5.kwallet-pam

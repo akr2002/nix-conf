@@ -3,6 +3,7 @@
     ./bash
     ./bat
     ./browsers
+    ./fonts
     ./kitty
     ./neovim
     ./session-vars
