@@ -48,12 +48,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    xsel
-    wget
-    neofetch
-    htop
-    oh-my-zsh
-    git
     chromium
     plasma5Packages.qtstyleplugin-kvantum
     kdeconnect
@@ -64,42 +58,25 @@
     joypixels
     rustc
     cargo
-    unzip
-    ocs-url
     nextcloud-client
-    duf
     foliate
     mpv
     obsidian
     dino
-    aria2
-    bitwarden
     kitty-themes
-    p7zip
     tdesktop
     libreoffice-fresh
     jetbrains-mono
     yakuake
-    krita
-    filelight
-    inkscape
-    yt-dlp
-    ranger
     libsForQt5.kwallet
     libsForQt5.kwallet-pam
     libsForQt5.kwalletmanager
     libsForQt5.ksshaskpass
-    cachix
-    direnv
-    git-lfs
-    nix-direnv
     zathura
     starship
     gnome.gnome-tweaks
     gnome-extension-manager
     ripgrep
-    inputs.nv.packages.x86_64-linux.default
-    inputs.nyaa.packages.x86_64-linux.default
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

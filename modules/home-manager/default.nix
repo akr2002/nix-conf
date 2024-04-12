@@ -6,6 +6,7 @@
     ./neovim
     ./session-vars
     ./tmux
+    ./utils
     ./vscode
     ./zsh
   ];

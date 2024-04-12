@@ -1,0 +1,30 @@
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  home.packages = with pkgs; [
+    aria2
+    bitwarden
+    cachix
+    direnv
+    duf
+    git
+    git-lfs
+    htop
+    filelight
+    neofetch
+    nix-direnv
+    ocs-url
+    p7zip
+    ranger
+    ripgrep
+    starship
+    unzip
+    wget
+    xsel
+    yt-dlp
+    inputs.nv.packages.x86_64-linux.default
+    inputs.nyaa.packages.x86_64-linux.default
+  ];
+}
