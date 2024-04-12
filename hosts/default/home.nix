@@ -25,8 +25,6 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  nixpkgs.config.joypixels.acceptLicense = true;
-
   # Manage session variables
 
   # The home.packages option allows you to install Nix packages into your
