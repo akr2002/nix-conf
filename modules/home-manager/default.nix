@@ -8,6 +8,7 @@
     ./gnome-utils
     ./kde-utils
     ./kitty
+    ./media
     ./neovim
     ./office
     ./session-vars

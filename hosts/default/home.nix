@@ -48,10 +48,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    x264
     rustc
     cargo
-    mpv
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
