@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -19,11 +20,13 @@
         plugins = ["git" "colored-man-pages" "extract" "sudo"];
       };
       initExtra = ''
-        eval "$(direnv hook zsh)"
+        eval "$(${lib.getExe pkgs.direnv} hook zsh)"
         eval "$(starship init zsh)"
-        alias vv=nvim
-        alias yt-dlp-1080="yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
       '';
+      home.shellAliases = {
+        vv = "nvim";
+        yt-dlp-1080 = "yt-dlp -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]'";
+      };
     };
   };
 }
