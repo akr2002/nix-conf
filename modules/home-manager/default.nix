@@ -3,6 +3,7 @@
     ./bash
     ./bat
     ./browsers
+    ./communication
     ./fonts
     ./gnome-utils
     ./kde-utils

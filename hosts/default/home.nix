@@ -52,8 +52,6 @@
     rustc
     cargo
     mpv
-    dino
-    tdesktop
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
