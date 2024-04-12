@@ -10,12 +10,11 @@
   config = lib.mkIf config.hardware.enable {
     environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
     hardware = {
-      #firmware = with pkgs; [firmwareLinuxNonfree];
       opengl = {
         enable = true;
         driSupport = true;
         driSupport32Bit = true;
-        extraPackages = with pkgs; [vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver intel-vaapi-driver rocm-opencl-icd rocm-opencl-runtime];
+        extraPackages = with pkgs; [vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver intel-vaapi-driver];
       };
     };
     nixpkgs.config.packageOverrides = pkgs: {
