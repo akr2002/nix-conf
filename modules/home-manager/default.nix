@@ -5,6 +5,7 @@
     ./browsers
     ./communication
     ./devel
+    ./direnv
     ./fonts
     ./gnome-utils
     ./kde-utils
@@ -24,6 +25,7 @@
 
   bash.enable = lib.mkDefault true;
   bat.enable = lib.mkDefault true;
+  direnv.enable = lib.mkDefault true;
   gnome-utils.enable = lib.mkDefault false;
   kde-utils.enable = lib.mkDefault true;
   kitty.enable = lib.mkDefault true;
