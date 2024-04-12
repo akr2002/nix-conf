@@ -48,8 +48,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    plasma5Packages.qtstyleplugin-kvantum
-    kdeconnect
     x264
     rustc
     cargo
@@ -60,11 +58,6 @@
     dino
     tdesktop
     libreoffice-fresh
-    yakuake
-    libsForQt5.kwallet
-    libsForQt5.kwallet-pam
-    libsForQt5.kwalletmanager
-    libsForQt5.ksshaskpass
     zathura
   ];
 
