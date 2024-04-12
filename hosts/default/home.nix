@@ -1,11 +1,19 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "user";
   home.homeDirectory = "/home/user";
   programs.home-manager.enable = true;
+
+  imports = [
+    #  inputs.nixvim.homeManagerModules.nixvim
+    ../../modules/home-manager
+  ];
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -17,9 +25,7 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
-  # Allow non-free packages
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.joypixels.acceptLicense = true;
+  # Manage session variables
 
   # Manage session variables
   home.sessionVariables = {
@@ -45,6 +51,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+<<<<<<< HEAD:home.nix
     xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
     bat gnome.gnome-tweaks microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 gnome.gnome-terminal 
     joypixels rustc cargo unzip
@@ -74,19 +81,26 @@
     defaultEditor = true;
   };
 
+=======
+  ];
+
+>>>>>>> refactor:hosts/default/home.nix
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  #home.file = {
+  # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+  # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+  # # symlink to the Nix store copy.
+  # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  # # You can also set the file content immediately.
+  # ".gradle/gradle.properties".text = ''
+  #   org.gradle.console=verbose
+  #   org.gradle.daemon.idletimeout=3600000
+  # '';
+  #};
+  home.file = {
+    ".config/hypr".source = ../../modules/nixos/hyprland/config/hypr;
   };
 
   # You can also manage environment variables but you will have to manually
