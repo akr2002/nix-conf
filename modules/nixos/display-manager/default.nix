@@ -12,7 +12,13 @@
       xserver = {
         enable = true;
         displayManager = {
-          sddm.enable = true;
+          sddm = {
+            enable = true;
+            wayland = {
+              enable = true;
+              compositor = "kwin";
+            };
+          };
           gdm.enable = false;
         };
         desktopManager = {
