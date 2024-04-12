@@ -29,7 +29,7 @@
 
   # Manage session variables
   home.sessionVariables = {
-    NIXPKGS_ALLOW_UNFREE=1;
+    NIXPKGS_ALLOW_UNFREE = 1;
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -51,40 +51,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-<<<<<<< HEAD:home.nix
-    xsel wget neofetch htop oh-my-zsh git chromium kitty plasma5Packages.qtstyleplugin-kvantum kdeconnect
-    bat gnome.gnome-tweaks microsoft-edge vivaldi vivaldi-ffmpeg-codecs x264 gnome.gnome-terminal 
-    joypixels rustc cargo unzip
   ];
 
-  programs.bash = {
-    enable = false;
-    bashrcExtra = ''
-        . ~/.bashrc
-    '';
-  };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
-    syntaxHighlighting.enable = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "ys";
-      plugins = ["git" "colored-man-pages" "extract" "sudo"];
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-=======
-  ];
-
->>>>>>> refactor:hosts/default/home.nix
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   #home.file = {
