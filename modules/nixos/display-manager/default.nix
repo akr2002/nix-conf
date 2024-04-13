@@ -16,7 +16,7 @@
             enable = true;
             wayland = {
               enable = true;
-              compositor = "kwin";
+              #compositor = "kwin";
             };
           };
           gdm.enable = false;
