@@ -13,40 +13,27 @@
         enable = true;
         displayManager = {
           sddm = {
-            enable = true;
+            enable = false;
             wayland = {
               enable = true;
               #compositor = "kwin";
             };
           };
-          gdm.enable = false;
+          gdm.enable = true;
         };
         desktopManager = {
-          gnome.enable = false;
+          gnome.enable = true;
         };
         xkb = {
           layout = "us";
           variant = "";
         };
       };
-      desktopManager.plasma6.enable = true;
+      desktopManager.plasma6.enable = false;
     };
     environment.systemPackages = with pkgs; [
       dunst
       grim
-      gnomeExtensions.autohide-battery
-      gnomeExtensions.aylurs-widgets
-      gnomeExtensions.bluetooth-battery
-      gnomeExtensions.clipboard-indicator
-      gnomeExtensions.hide-activities-button
-      gnomeExtensions.hide-top-bar
-      gnomeExtensions.ideapad-controls
-      gnomeExtensions.lock-keys
-      gnomeExtensions.maximize-to-empty-workspace
-      gnomeExtensions.media-controls
-      gnomeExtensions.openweather
-      gnomeExtensions.system-monitor-next
-      gnomeExtensions.wireless-hid
       kdePackages.ksystemstats
       libsForQt5.bismuth
       libnotify
