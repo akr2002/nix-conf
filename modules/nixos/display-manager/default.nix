@@ -13,23 +13,23 @@
         enable = true;
         displayManager = {
           sddm = {
-            enable = false;
+            enable = true;
             wayland = {
               enable = true;
               #compositor = "kwin";
             };
           };
-          gdm.enable = true;
+          gdm.enable = false;
         };
         desktopManager = {
-          gnome.enable = true;
+          gnome.enable = false;
         };
         xkb = {
           layout = "us";
           variant = "";
         };
       };
-      desktopManager.plasma6.enable = false;
+      desktopManager.plasma6.enable = true;
     };
     environment.systemPackages = with pkgs; [
       dunst
