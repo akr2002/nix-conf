@@ -29,7 +29,7 @@
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = 1;
     NIXOS_OZONE_WL = 1;
-    QT_QPA_PLATFORM = "wayland";
+    #QT_QPA_PLATFORM = "wayland";
   };
 
   # The home.packages option allows you to install Nix packages into your
