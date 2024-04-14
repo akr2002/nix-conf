@@ -18,24 +18,25 @@
         gnome-themes-extra
       ])
       ++ (with pkgs.gnomeExtensions; [
-        user-themes
+        arcmenu
         blur-my-shell
+        user-themes
       ]);
     gtk = {
       enable = true;
       iconTheme = {
         package = pkgs.tela-icon-theme;
-        name = "Tela-green";
+        name = "Tela-blue";
       };
       theme = {
         package = pkgs.orchis-theme.overrideAttrs {
           installPhase = ''
             runHook preInstall
-            bash install.sh -d $out/share/themes -t all -c dark -l --tweaks macos --tweaks solid
+            bash install.sh -d $out/share/themes -t all -c dark -l --tweaks macos
             runHook postInstall
           '';
         };
-        name = "Orchis-Green-Dark";
+        name = "Orchis-Dark";
       };
     };
   };
