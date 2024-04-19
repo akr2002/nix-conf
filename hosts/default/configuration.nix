@@ -37,6 +37,7 @@
       OVMF
       dnsmasq
       networkmanagerapplet
+      spice-vdagent
     ];
   };
 
