@@ -3,5 +3,8 @@
     vim
     wget
     git
+    nh
+    nix-output-monitor
+    nvd
   ];
 }
