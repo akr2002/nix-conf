@@ -30,8 +30,6 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   services = {
     gvfs.enable = true;
     printing.enable = true;

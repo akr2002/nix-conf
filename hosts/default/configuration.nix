@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  outputs,
   ...
 }: {
   imports = [
@@ -10,6 +11,10 @@
     ./hardware-configuration.nix
     ../../modules/nixos/default.nix
     inputs.home-manager.nixosModules.default
+  ];
+
+  nixpkgs.overlays = [
+    outputs.overlays.master-packages
   ];
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
