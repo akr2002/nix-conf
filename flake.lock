@@ -156,11 +156,11 @@
     },
     "master": {
       "locked": {
-        "lastModified": 1713590758,
-        "narHash": "sha256-gMZU7ZWEDiiM8/a1UcR79+C46qVoZiVZ+V9XjZFrJzA=",
+        "lastModified": 1713766410,
+        "narHash": "sha256-fsBet/tJ0bzNozs/G8LCI6IkVD+3CQUZlC5X2FGICsE=",
         "owner": "akr2002",
         "repo": "nixpkgs",
-        "rev": "3e5b4b5183a1d8b4bb648d7581aba76b50c31846",
+        "rev": "3d15294e9f157102b546a2cbd258eddacbfc5ea2",
         "type": "github"
       },
       "original": {
