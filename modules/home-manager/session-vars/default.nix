@@ -10,5 +10,13 @@ _: {
 
     # Store git credentials in KDE Wallet
     GIT_ASKPASS = "/home/user/.nix-profile/bin/ksshaskpass";
+
+    WAYLAND_DISPLAY = "wayland-1";
+    QT_QPA_PLATFORM = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
+    DISPLAY = ":0";
   };
 }
