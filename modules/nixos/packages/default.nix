@@ -6,5 +6,6 @@
     nh
     nix-output-monitor
     nvd
+    ollama
   ];
 }
