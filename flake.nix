@@ -6,10 +6,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nv = {
-      url = "github:akr2002/nv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nv = {
+    #  url = "github:akr2002/nv";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     nyaa = {
       url = "github:akr2002/nyaa";
       inputs.nixpkgs.follows = "nixpkgs";

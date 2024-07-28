@@ -10,10 +10,9 @@
   config = lib.mkIf config.hardware.enable {
     environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
     hardware = {
-      opengl = {
+      graphics = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
+        enable32Bit = true;
         extraPackages = with pkgs; [vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver intel-vaapi-driver];
       };
     };
