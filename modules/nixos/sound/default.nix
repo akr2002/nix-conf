@@ -7,7 +7,7 @@
     audio.enable = lib.mkEnableOption "enable sound";
   };
   config = lib.mkIf config.audio.enable {
-    sound.enable = true;
+    #sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
