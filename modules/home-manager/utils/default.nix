@@ -12,6 +12,7 @@
     git
     git-lfs
     htop
+    fastfetch
     filelight
     neofetch
     nix-direnv
