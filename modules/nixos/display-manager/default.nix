@@ -12,7 +12,7 @@
       displayManager = {
         sddm = {
           enable = true;
-          wayland.enable = true;
+          wayland.enable = false;
         };
       };
       xserver = {
@@ -29,6 +29,10 @@
         };
       };
       desktopManager.plasma6.enable = true;
+      xserver.desktopManager.xfce = {
+        enable = true;
+        enableXfwm = true;
+      };
     };
     environment.systemPackages = with pkgs; [
       dunst
