@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    monitor = {
+      url = "github:akr2002/monitor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #nv = {
     #  url = "github:akr2002/nv";
     #  inputs.nixpkgs.follows = "nixpkgs";
