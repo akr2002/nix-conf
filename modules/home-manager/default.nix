@@ -13,6 +13,7 @@
     ./media
     ./monitor
     ./neovim
+    ./nixvim
     ./office
     ./session-vars
     ./tmux
