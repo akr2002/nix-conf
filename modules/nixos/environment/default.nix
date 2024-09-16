@@ -4,7 +4,7 @@ _: {
     localBinInPath = true; # Include ~/.local/bin in $PATH
     sessionVariables = {
       # tell electron apps to use wayland
-      NIXOS_OZONE_WL = "1";
+      # NIXOS_OZONE_WL = "1";
     };
   };
 }

@@ -12,7 +12,7 @@
       displayManager = {
         sddm = {
           enable = true;
-          wayland.enable = false;
+          # wayland.enable = false;
         };
       };
       xserver = {
@@ -53,6 +53,6 @@
       virtiofsd
     ];
     xdg.portal.enable = true;
-    programs.xwayland.enable = true;
+    # programs.xwayland.enable = true;
   };
 }
