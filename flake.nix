@@ -18,6 +18,10 @@
       url = "github:akr2002/nyaa";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neve = {
       url = "github:redyf/neve";
     };

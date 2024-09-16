@@ -11,7 +11,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    #  inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeManagerModules.nixvim
     ../../modules/home-manager
   ];
 
