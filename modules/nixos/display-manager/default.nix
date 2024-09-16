@@ -12,7 +12,7 @@
       displayManager = {
         sddm = {
           enable = true;
-          # wayland.enable = false;
+          wayland.enable = false;
         };
       };
       xserver = {
