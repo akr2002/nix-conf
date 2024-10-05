@@ -43,6 +43,7 @@
       dnsmasq
       networkmanagerapplet
       spice-vdagent
+      qjoypad
     ];
   };
 
