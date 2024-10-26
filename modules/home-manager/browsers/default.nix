@@ -4,5 +4,6 @@
     microsoft-edge
     vivaldi
     vivaldi-ffmpeg-codecs
+    tor-browser
   ];
 }
