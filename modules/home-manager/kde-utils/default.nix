@@ -9,7 +9,7 @@
   };
   config = lib.mkIf config.kde-utils.enable {
     home.packages = with pkgs; [
-      kdeconnect
+      kdePackages.kdeconnect-kde
       libsForQt5.kwallet
       libsForQt5.kwallet-pam
       libsForQt5.kwalletmanager
