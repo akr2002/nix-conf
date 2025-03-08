@@ -15,7 +15,7 @@
       libsForQt5.kwalletmanager
       libsForQt5.ksshaskpass
       plasma5Packages.qtstyleplugin-kvantum
-      yakuake
+      kdePackages.yakuake
     ];
   };
 }

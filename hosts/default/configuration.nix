@@ -31,7 +31,7 @@
     shell = pkgs.zsh;
     extraGroups = ["networkmanager" "wheel" "libvirtd" "qemu" "qemu-kvm" "vo" "docker" "lxc" "incus-admin"];
     packages = with pkgs; [
-      kate
+      kdePackages.kate
       vim
       libvirt
       spice-gtk

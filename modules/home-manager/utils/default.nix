@@ -13,7 +13,7 @@
     git-lfs
     htop
     fastfetch
-    filelight
+    kdePackages.filelight
     neofetch
     nix-direnv
     ocs-url
