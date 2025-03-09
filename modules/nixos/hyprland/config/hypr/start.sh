@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 swww init &
-swww img /home/user/Pictures/1611244530792.jpg &
+swww img /home/user/.bg &
 
 # pkgs.networkmanagerapplet
 nm-applet --indicator &
