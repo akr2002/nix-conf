@@ -10,7 +10,7 @@
   config = lib.mkIf config.vscode.enable {
     programs.vscode = {
       enable = true;
-      extensions = with pkgs.vscode-extensions; [
+      profiles.default.extensions = with pkgs.vscode-extensions; [
         arrterian.nix-env-selector
         mkhl.direnv
         jnoortheen.nix-ide
