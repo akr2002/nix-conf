@@ -9,7 +9,7 @@
   config = lib.mkIf config.virtualization.enable {
     virtualisation = {
       docker.enable = true;
-      incus.enable = true;
+      incus.enable = false;
       libvirtd.enable = true;
       lxc = {
         enable = true;
