@@ -13,6 +13,7 @@
     git-lfs
     htop
     hyprlock
+    hyprshot
     fastfetch
     kdePackages.filelight
     neofetch
