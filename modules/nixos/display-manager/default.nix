@@ -11,14 +11,15 @@
     services = {
       displayManager = {
         sddm = {
-          enable = true;
+          enable = false;
           wayland.enable = false;
         };
       };
       xserver = {
         enable = true;
         displayManager = {
-          gdm.enable = false;
+          defaultSession = "plasma";
+          gdm.enable = true;
         };
         desktopManager = {
           gnome.enable = false;
@@ -53,6 +54,6 @@
       virtiofsd
     ];
     xdg.portal.enable = true;
-    # programs.xwayland.enable = true;
+    programs.xwayland.enable = true;
   };
 }

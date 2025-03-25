@@ -28,8 +28,8 @@
   # Manage session variables
   home.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = 1;
-    # NIXOS_OZONE_WL = 1;
-    QT_QPA_PLATFORM = "xcb";
+    NIXOS_OZONE_WL = 1;
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 
   # The home.packages option allows you to install Nix packages into your
