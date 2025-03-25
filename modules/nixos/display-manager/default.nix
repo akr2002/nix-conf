@@ -11,24 +11,24 @@
     services = {
       displayManager = {
         sddm = {
-          enable = false;
+          enable = true;
           wayland.enable = false;
         };
       };
       xserver = {
         enable = true;
         displayManager = {
-          gdm.enable = true;
+          gdm.enable = false;
         };
         desktopManager = {
-          gnome.enable = true;
+          gnome.enable = false;
         };
         xkb = {
           layout = "us";
           variant = "";
         };
       };
-      desktopManager.plasma6.enable = false;
+      desktopManager.plasma6.enable = true;
       xserver.desktopManager.xfce = {
         enable = true;
         enableXfwm = true;
