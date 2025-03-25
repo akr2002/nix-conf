@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -8,5 +9,6 @@
   };
   config = lib.mkIf config.ssh.enable {
     services.openssh.enable = true;
+    programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
   };
 }

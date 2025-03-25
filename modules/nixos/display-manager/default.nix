@@ -22,7 +22,7 @@
           gdm.enable = true;
         };
         desktopManager = {
-          gnome.enable = false;
+          gnome.enable = true;
         };
         xkb = {
           layout = "us";
