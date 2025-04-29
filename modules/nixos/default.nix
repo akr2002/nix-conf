@@ -7,6 +7,7 @@
     ./environment
     ./filesystem
     ./fonts
+    ./gaming
     ./hardware
     ./hyprland
     ./kernel
@@ -30,6 +31,8 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   services = {
     gvfs.enable = true;
     printing.enable = true;
@@ -48,6 +51,7 @@
   editor.enable = lib.mkDefault true;
   hardware.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
+  gaming.enable = lib.mkDefault true;
   networking.enable = lib.mkDefault true;
   audio.enable = lib.mkDefault true;
   ssh.enable = lib.mkDefault true;
