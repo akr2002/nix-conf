@@ -24,6 +24,7 @@
     };
     neve = {
       url = "github:redyf/neve";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
