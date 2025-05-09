@@ -10,10 +10,6 @@
       url = "github:akr2002/monitor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    #nv = {
-    #  url = "github:akr2002/nv";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
     nyaa = {
       url = "github:akr2002/nyaa";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,8 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neve = {
-      url = "github:redyf/neve";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:akr2002/Neve";
     };
   };
 

@@ -234,26 +234,36 @@
     "neve": {
       "inputs": {
         "flake-utils": "flake-utils_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs",
         "nixvim": "nixvim"
       },
       "locked": {
         "lastModified": 1745269914,
         "narHash": "sha256-AO5lKLUSvP4AM+NVgrFmPzT6owjxplvBxoqBdi4ujYE=",
-        "owner": "redyf",
-        "repo": "neve",
+        "owner": "akr2002",
+        "repo": "Neve",
         "rev": "12055e2b1bc97335cef27052c5a0ed5fd5d417e4",
         "type": "github"
       },
       "original": {
-        "owner": "redyf",
-        "repo": "neve",
+        "owner": "akr2002",
+        "repo": "Neve",
         "type": "github"
       }
     },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 0,
+        "narHash": "sha256-cPfs8qMccim2RBgtKGF+x9IBCduRvd/N5F4nYpU0TVE=",
+        "path": "/nix/store/sznkl4iwqvxprlg05fx24xx8bd8j7y6l-source",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1742272065,
         "narHash": "sha256-ud8vcSzJsZ/CK+r8/v0lyf4yUntVmDq6Z0A41ODfWbE=",
@@ -269,7 +279,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1746663147,
         "narHash": "sha256-Ua0drDHawlzNqJnclTJGf87dBmaO/tn7iZ+TCkTRpRc=",
@@ -288,7 +298,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nuschtosSearch": "nuschtosSearch"
       },
       "locked": {
@@ -400,7 +410,7 @@
         "master": "master",
         "monitor": "monitor",
         "neve": "neve",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim_2",
         "nyaa": "nyaa"
       }
