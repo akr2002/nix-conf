@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neve = {
-      url = "github:akr2002/Neve";
+      url = "github:redyf/Neve";
     };
   };
 
