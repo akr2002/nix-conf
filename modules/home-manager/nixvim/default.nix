@@ -10,10 +10,8 @@
   config = lib.mkIf config.nixvim.enable {
     programs.nixvim = {
       enable = true;
-      colorschemes.catpuccin.enable = lib.mkForce false;
-      colorschemes.nord.enable = true;
+      imports = [ pkgs.inputs.neve.nixvimModule ];
       plugins = {
-
       };
       extraPlugins = with pkgs.vimPlugins; [
         ultisnips
