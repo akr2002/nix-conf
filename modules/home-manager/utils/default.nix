@@ -27,8 +27,7 @@
     wget
     xsel
     yt-dlp
-    inputs.neve.packages.${pkgs.system}.default
-    #inputs.nv.packages.x86_64-linux.default
+    # inputs.neve.packages.${pkgs.system}.default
     inputs.nyaa.packages.x86_64-linux.default
   ];
 }
