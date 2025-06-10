@@ -14,22 +14,20 @@
           enable = false;
           wayland.enable = false;
         };
+        gdm.enable = true;
+        defaultSession = "plasma";
       };
       xserver = {
         enable = true;
-        displayManager = {
-          defaultSession = "plasma";
-          gdm.enable = true;
-        };
-        desktopManager = {
-          gnome.enable = true;
-        };
         xkb = {
           layout = "us";
           variant = "";
         };
       };
-      desktopManager.plasma6.enable = true;
+      desktopManager = {
+        gnome.enable = true;
+        plasma6.enable = true;
+      };
       xserver.desktopManager.xfce = {
         enable = true;
         enableXfwm = true;
