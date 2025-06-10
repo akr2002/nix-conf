@@ -17,19 +17,19 @@
       };
       xserver = {
         enable = true;
+        displayManager = {
+          defaultSession = "plasma";
+          gdm.enable = true;
+        };
+        desktopManager = {
+          gnome.enable = true;
+        };
         xkb = {
           layout = "us";
           variant = "";
         };
       };
-      desktopManager = {
-        plasma6.enbale = true;
-        gnome.enable = true;
-      };
-      displayManager = {
-        gdm.enable = true;
-        defaultSession = "plasma";
-      };
+      desktopManager.plasma6.enable = true;
       xserver.desktopManager.xfce = {
         enable = true;
         enableXfwm = true;

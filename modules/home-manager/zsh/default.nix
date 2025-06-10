@@ -19,7 +19,7 @@
         theme = "ys";
         plugins = ["git" "colored-man-pages" "extract" "sudo"];
       };
-      initContent = ''
+      initExtra = ''
         eval "$(${lib.getExe pkgs.direnv} hook zsh)"
         eval "$(starship init zsh)"
       '';
